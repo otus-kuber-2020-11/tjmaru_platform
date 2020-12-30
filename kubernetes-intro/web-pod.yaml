@@ -18,6 +18,13 @@ spec:
     volumeMounts:
     - name: app
       mountPath: /app
+    readinessProbe:
+      httpGet:
+        port: 80
+        path: /index.html
+    livenessProbe:
+      tcpSocket:
+        port: 8000
   volumes:
   - name: app
     emptyDir: {}
